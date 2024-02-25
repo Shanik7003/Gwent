@@ -1,0 +1,15 @@
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.csproj.AssemblyReference.cache
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.AssemblyInfoInputs.cache
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.AssemblyInfo.cs
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.csproj.CoreCompileInputs.cache
+/Users/shanik/Desktop/gwent/bin/Debug/net7.0/gwent
+/Users/shanik/Desktop/gwent/bin/Debug/net7.0/gwent.deps.json
+/Users/shanik/Desktop/gwent/bin/Debug/net7.0/gwent.runtimeconfig.json
+/Users/shanik/Desktop/gwent/bin/Debug/net7.0/gwent.dll
+/Users/shanik/Desktop/gwent/bin/Debug/net7.0/gwent.pdb
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.dll
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/refint/gwent.dll
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.pdb
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/gwent.genruntimeconfig.cache
+/Users/shanik/Desktop/gwent/obj/Debug/net7.0/ref/gwent.dll
