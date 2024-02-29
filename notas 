@@ -1,3 +1,10 @@
 las repeticiones de cada tipo unitCard
 posibilidad de cambiar tres cartas al inicio de la 1ra ronda
 donde este escrito parche revisar con Frank
+faltan 4 casos MR,MS,RS,MRS EN PlayCard(UnitCard) // ya puse una nota en el metodo PlayCard que dice lo que tengo que hacer que es en a terminal 
+una vez jugada la carta eliminala de la mano (importante)!!!!!
+revisar si esta bien donde puse la funcion ChooseCommanderHornPosition()
+averiguar si points en WheatherCard y CommanderHornCard puede ser null en lugar de cero
+
+necesito hacer Commit ya 
+frank para tablero en la terminal 
