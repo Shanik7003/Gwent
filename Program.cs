@@ -48,7 +48,7 @@ class Program
 					System.Console.WriteLine("----------CONTINUA EL PLAYER 1----------");
 					Console.ResetColor();
 				}
-				else//si no ha pasado
+				else//si no ha pasado 
 				{
 					Console.ForegroundColor = ConsoleColor.Blue;
 					System.Console.WriteLine("----------TURNO DEL PLAYER 2----------");

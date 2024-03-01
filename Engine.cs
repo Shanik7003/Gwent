@@ -56,19 +56,21 @@ namespace Engine;
         public string description{get;private set;}
         public Position position{get;private set;}
         public int points{get;private set;}
+        public Player player{get;set;}
 
-        public Card(string name,string description, Position position,int points)
+        public Card(string name,string description, Position position,int points,Player player)
         {
             this.name = name;
             this.description= description;
             this.position = position;
             this.points = points;
+            this.player=player;
         }
     }
     public class UnitCard : Card
     {
         public Habilities hability{get; private set;}
-        public UnitCard(string name,string description,Position position,int points, Habilities hability) : base(name,description, position,points)
+        public UnitCard(string name,string description,Position position,int points, Habilities hability,Player player) : base(name,description, position,points,player)
         {
             this.hability = hability;
         }
@@ -77,16 +79,16 @@ namespace Engine;
    
     public class WheatherCard : UnitCard
     {
-        public WheatherCard(string name, string description,Position position,Habilities hability,int points) : base(name,description,position,0,hability){}
+        public WheatherCard(string name, string description,Position position,Habilities hability,int points,Player player) : base(name,description,position,0,hability,player){}
     }
     public class CommanderHorn : UnitCard
     {
-        public CommanderHorn(string name, string description,Position position,Habilities hability,int points) : base(name,description,Position.MRS,0,hability){}
+        public CommanderHorn(string name, string description,Position position,Habilities hability,int points,Player player) : base(name,description,Position.MRS,0,hability,player){}
     }
 
     public class LeaderCard : UnitCard
     {
-            public LeaderCard(string name, string description,Position position,Habilities hability) : base(name,description,Position.Leaderposition,0,hability){} 
+            public LeaderCard(string name, string description,Position position,Habilities hability,Player player) : base(name,description,Position.Leaderposition,0,hability,player){} 
     }
 
     public class Faction
@@ -125,7 +127,7 @@ namespace Engine;
         public Faction Faction;
         public List<UnitCard> Graveyard;
         public Board Board;
-        List<UnitCard> Hand;
+        public List<UnitCard> Hand{get;set;}
         public Player(int points, Faction faction, List<UnitCard> graveyard, Board board,List<UnitCard>hand)
         {
             Points = points;
@@ -197,6 +199,7 @@ namespace Engine;
                 Position position = ChooseCommanderHornPosition(card);
                 Board.commanderHornSpace[(int)position] = card;
             }
+
             if(card is UnitCard && !IsSpecialCard)//si la carta es de unidad pero no es ninguna de las cartas especiales 
             {
                 if (card.position == Position.M)
@@ -209,7 +212,7 @@ namespace Engine;
                                 Board.board[i,j] = card;
                                 Hand.Remove(card);
                                 Points += card.points;
-                                FreeHablity(card.hability);
+                                Game.FreeHablity(card.hability,card.player);
                                 return;
                             }
                         }
@@ -225,7 +228,7 @@ namespace Engine;
                                 Board.board[i,j] = card;
                                 Hand.Remove(card);
                                 Points += card.points;
-                                FreeHablity(card.hability);
+                                Game.FreeHablity(card.hability,card.player);
                                 return;
                             }
                         }
@@ -240,7 +243,7 @@ namespace Engine;
                                 Board.board[i,j] = card;
                                 Hand.Remove(card);
                                 Points += card.points;
-                                FreeHablity(card.hability);
+                                Game.FreeHablity(card.hability,card.player);
                                 return;
                             }
                         }
@@ -280,31 +283,7 @@ namespace Engine;
             return Position.MRS;
         }
 
-       // metodo que conecta el enum unitCard HAblity con las funciones de las habilidades
-        public void FreeHablity(Habilities hability)
-        {
-           if (hability == Habilities.CardTheft)
-           {
-                CardTheft();
-           }
-        }
-      //metodos para las UnitCardHability
-         public void CardTheft() //robar una carta 
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine(" ---SU CARTA POSEIA LA HABILIDAD DE ROBAR UNA CARTA EXTRA DE SU MAZO---");
-            Console.ResetColor();
-            Random random = new Random();
-            UnitCard stolenCard = Faction.Deck[random.Next(1,24)];
-            System.Console.WriteLine("SU NUEVA CARTA ES " + stolenCard.name);
-            Hand.Add(stolenCard);
-            System.Console.WriteLine("ahora su mano tiene las siguientes cartas: ");
-            foreach (var item in Hand)
-            {
-                System.Console.WriteLine(item.name);
-            }
-        }
-        
+      
     }
 
     public class Board
