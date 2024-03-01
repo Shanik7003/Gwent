@@ -183,14 +183,20 @@ namespace Engine;
                 if (card.position == Position.M)
                 {
                     Board.wheatherSpace[(int)Position.M] =  card;
+                    Hand.Remove(card);
+                    Game.FreeHablity(card.hability,card.player);
                 }
                 if (card.position == Position.R)
                 {
                     Board.wheatherSpace[(int)Position.R] = card;
+                    Hand.Remove(card);
+                    Game.FreeHablity(card.hability,card.player);
                 }
                 if (card.position == Position.S)
                 {
                     Board.wheatherSpace[(int)Position.R] = card;
+                    Hand.Remove(card);
+                    Game.FreeHablity(card.hability,card.player);
                 }
             }
             if (card is CommanderHorn)
@@ -198,6 +204,9 @@ namespace Engine;
                 IsSpecialCard = true;
                 Position position = ChooseCommanderHornPosition(card);
                 Board.commanderHornSpace[(int)position] = card;
+                Hand.Remove(card);
+                Game.FreeHablity(card.hability,card.player);
+
             }
 
             if(card is UnitCard && !IsSpecialCard)//si la carta es de unidad pero no es ninguna de las cartas especiales 
